@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function go() {
+        console.log('Go');
+    }
+    function goSteps(n) {
+        function isInt() {
+            if (--n == n){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if (isNaN(n) || n === 0 || n < 0 || isInt()){
+            console.log(0);
+        }else {
+            while (n--){
+                go();
+            }
+        }
+    }
+</script>
+</body>
+</html>
