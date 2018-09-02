@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="txt"></p>
+<script>
+    var date = new  Date();
+    var weekday1 = new Array(7);
+    weekday1= [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+    ];
+    function startTime()
+    {
+        var today=new Date();
+        var h=checkTime(today.getHours());
+        var m=checkTime(today.getMinutes());
+        var s=checkTime(today.getSeconds());
+        var y=checkTime(today.getFullYear());
+        var mon=checkTime(today.getMonth() + 1);
+        var day=checkTime(today.getDate());
+// add a zero in front of numbers<10
+
+        function checkTime(i){
+            if (i<10){
+                i = '0' + i;
+            }
+            return i;
+        }
+
+        function isMorning(){
+            if (today.getHours() < 12){
+                return 'AM';
+            } else {
+                return 'PM';
+            }
+        }
+
+        document.getElementById('txt').innerHTML=y+"-"+mon+"-"+day+" "+weekday1[today.getDay()]+" "+h+":"+m+":"+s+" "+isMorning();
+        t=setTimeout('startTime()',1000)
+    }
+    startTime();
+</script>
+</body>
+</html>
